@@ -8,19 +8,18 @@ function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    // Load initial dummy data
     const data = [
-      { id: 1, text: 'Learn React', completed: false },
-      { id: 2, text: 'Build a Todo App', completed: false },
-      { id: 3, text: 'Master React Hooks', completed: true }
+      { id: 1, text: 'Test Data 1', completed: false },
+      { id: 2, text: 'Test Data 2', completed: false },
+      { id: 3, text: 'Test Data 3', completed: true }
     ]
     setTodos(data);
   }, []);
 
   const addTodo = (todo) => {
     const lastId = todos[todos.length - 1];
-    const newTodo = { id: lastId.id+1, text: todo, completed: false }
-    setTodos([...todos,newTodo])
+    const newTodo = { id: lastId ? lastId.id + 1 : 1, text: todo, completed: false }
+    setTodos([...todos, newTodo])
   }
   const markComplete = (id) => {
     const updatedTodos = [...todos];
@@ -30,17 +29,16 @@ function App() {
       setTodos(updatedTodos);
     }
   };
-  const deleteTodo=(id)=>{
+  const deleteTodo = (id) => {
     setTodos(todos => todos.filter(todo => todo.id !== id));
-
-
   }
   return (
     <div className="App">
       <Card style={{ backgroundColor: "#ddb9b9" }} className='card' variant="outlined">
         <h2>TODO LIST APP</h2>
         <TodoInput addTodo={addTodo} />
-        <TodoList todos={todos} markComplete={markComplete} deleteTodo={deleteTodo} />
+        {!todos.length ? <h3 className='nodata'>No Data Available</h3> : <TodoList todos={todos} markComplete={markComplete} deleteTodo={deleteTodo} />}
+
       </Card>
     </div>
   );

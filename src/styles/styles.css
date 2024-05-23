@@ -24,3 +24,28 @@ color: black;
     margin-top: 20px;
     cursor: pointer;
 }
+.scrollable{
+    height: 270px;
+    overflow-y: auto; 
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    
+}
+.scrollable_b{
+    height: 200;
+    overflow-y: auto; 
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.scrollable::-webkit-scrollbar {
+    display: none;
+  }
+  .horizontal_scroll{
+    width: 300px;
+    overflow-x: auto;
+  }
+  .horizontal_scroll::-webkit-scrollbar {
+    display: none;
+  }
