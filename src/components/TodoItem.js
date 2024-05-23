@@ -8,7 +8,7 @@ const TodoItem=({todo,markComplete,deleteTodo})=> {
     return (
         <Card style={{ backgroundColor: "rgb(208 131 131)" }} className='list_container'>
             <Checkbox  color="success" checked={todo.completed} onChange={() => markComplete(todo.id)} />
-            <h3>{todo.text}</h3>
+            <h3 className='horizontal_scroll'>{todo.text}</h3>
             <DeleteIcon className='delete' onClick={()=>{deleteTodo(todo.id)}} />
         </Card>
     )

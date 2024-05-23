@@ -4,7 +4,7 @@ import TodoItem from './TodoItem';
 
 function TodoList({todos,markComplete,deleteTodo}) {
     return (
-        <div>
+        <div className={todos.length>=3?'scrollable':'scrollable_b'}>
             {todos.map((todo) =>
                 <TodoItem key={todo.id} todo={todo} markComplete={markComplete} deleteTodo={deleteTodo} />
             )}
