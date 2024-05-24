@@ -15,21 +15,33 @@ const CustomTextField = styled(TextField)({
 });
 const TodoInput = ({addTodo}) => {
     const [input, setInput] = useState('')
+    const [error,setError]=useState(false)
+    const handleChange=(e)=>{
+        setInput(e.target.value)
+        if(input){
+            setError(false)
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
         if (input.trim()) {
             addTodo(input);
             setInput('');
+            setError(false)
           }
+       if(!input){
+        setError(true)
+       }
     }
     return (
         <div>
             <form className='form' onSubmit={handleSubmit} >
                 <CustomTextField
+                error={error}
                     label="Add item ..."
                     variant="outlined"
                     value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    onChange={handleChange}
                 />    
                 <Button className='button' type='submit' variant="contained">Add</Button>
             </form>
