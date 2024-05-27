@@ -38,7 +38,6 @@ function App() {
         <h2>TODO LIST APP</h2>
         <TodoInput addTodo={addTodo} />
         {!todos.length ? <h3 className='nodata'>No Data Available</h3> : <TodoList todos={todos} markComplete={markComplete} deleteTodo={deleteTodo} />}
-
       </Card>
     </div>
   );
