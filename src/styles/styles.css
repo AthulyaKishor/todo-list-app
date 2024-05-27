@@ -49,3 +49,8 @@ color: black;
   .horizontal_scroll::-webkit-scrollbar {
     display: none;
   }
+  .popover{
+    font-size: 12px;
+    padding: 5px;
+    background-color: antiquewhite;
+  }
